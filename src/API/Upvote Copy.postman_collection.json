@@ -1,0 +1,762 @@
+{
+	"info": {
+		"_postman_id": "8791e636-fcf3-4167-99ea-5f85a8edc2f7",
+		"name": "Upvote Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "amann@yopmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "aman",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://198.211.110.165:3006/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"198",
+						"211",
+						"110",
+						"165"
+					],
+					"port": "3006",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "aman@yopmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create profile",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzg1OWEzMmNlYTM4MjMyNTIxOTZiOCIsImlhdCI6MTYyNTA3MDUzOSwiZXhwIjoxNjI4MDk0NTM5fQ.A9Z0vGGyIwbwV5_JyuE-JauVO9Grv6TThJhmXhMwCCE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "f_name",
+							"value": "Aman1",
+							"type": "text"
+						},
+						{
+							"key": "l_name",
+							"value": "preet",
+							"type": "text"
+						},
+						{
+							"key": "dob",
+							"value": "1995-12-09",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"type": "file",
+							"src": "/Users/netset/Downloads/1609747917417.JPEG"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://198.211.110.165:3006/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"198",
+						"211",
+						"110",
+						"165"
+					],
+					"port": "3006",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "phone",
+							"value": "9878846385",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/users/send_otp",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"users",
+						"send_otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify otp",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "otp",
+							"value": "6626",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "9878846385",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/users/verify_otp",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"users",
+						"verify_otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Contest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "timezone",
+						"value": "Asia/Kolkata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"contest_name\": \"Test contest 4\",\n    \"max_entries\": 3,\n    \"contest_categories\": [{\"id\": \"60b4e6c177abdbbff1922f23\", \"subcategories\": [\"60b4e72877abdbbff1922f25\"]}],\n    \"media_types\": [\"AUD\", \"VID\", \"IMG\", \"GIF\", \"YTV\", \"WRP\"],\n    \"max_media_size\": 30,\n    \"max_media_duration\": 50,\n    \"start_date\": \"June 20,2021\",\n    \"end_date\": \"June 25,2021\",\n    \"start_time\": \"11:05\",\n    \"end_time\": \"16:05\",\n    \"description\": \"test description\",\n    \"recommendation_user\": \"test recommendation\",\n    \"entry_fee\": 300,\n    \"percentage_to_company\": 5,\n    \"amount_to_company\": 10,\n    \"total_prize_amount\": 1000,\n    \"contest_prizes\": [{\"to\": 1, \"from\": 5, \"percentage\": 70}, {\"to\": 6, \"from\": 10, \"percentage\": 30}],\n    \"rules\": \"test\",\n    \"judging_criteria\": \"test\",\n    \"status\":\"ACT\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/contests",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"contests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get new contests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "timezone",
+						"value": "Asia/Kolkata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/contests/new/0?category=&subcategories=60b4e72877abdbbff1922f25&sortStart=OLD&sortPrize=SMALL&sortFee=HIGH",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"contests",
+						"new",
+						"0"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": ""
+						},
+						{
+							"key": "subcategories",
+							"value": "60b4e72877abdbbff1922f25"
+						},
+						{
+							"key": "sortStart",
+							"value": "OLD",
+							"description": "NEW"
+						},
+						{
+							"key": "sortPrize",
+							"value": "SMALL",
+							"description": "LARGE"
+						},
+						{
+							"key": "sortFee",
+							"value": "HIGH",
+							"description": "LOW"
+						},
+						{
+							"key": "sortContestants",
+							"value": "MOST",
+							"description": "LEAST",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get contest details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "timezone",
+						"value": "Asia/Kolkata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/contests/60b4e85cf81b66211314d9bf/details",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"contests",
+						"60b4e85cf81b66211314d9bf",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get categories list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYzg1OWEzMmNlYTM4MjMyNTIxOTZiOCIsImlhdCI6MTYyNTIyMzg1MSwiZXhwIjoxNjI4MjQ3ODUxfQ.n9QwzdIxbJW2OTI5HX7O3GkE8FawG8QIm2Adl-HHnVA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://198.211.110.165:3006/api/v1/categories",
+					"protocol": "http",
+					"host": [
+						"198",
+						"211",
+						"110",
+						"165"
+					],
+					"port": "3006",
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subcategories of category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"description": "send ALL for all subcategories",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/categories/ALL/subcategories",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"categories",
+						"ALL",
+						"subcategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Live contests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "timezone",
+						"value": "Asia/Kolkata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/contests/live/0?category=60b4e6c177abdbbff1922f23&subcategories=60b4e72877abdbbff1922f25",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"contests",
+						"live",
+						"0"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "60b4e6c177abdbbff1922f23"
+						},
+						{
+							"key": "subcategories",
+							"value": "60b4e72877abdbbff1922f25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Old contests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "timezone",
+						"value": "Asia/Kolkata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/contests/old/0?category=60b4e6c177abdbbff1922f23&subcategories=60b4e72877abdbbff1922f25",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"contests",
+						"old",
+						"0"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "60b4e6c177abdbbff1922f23"
+						},
+						{
+							"key": "subcategories",
+							"value": "60b4e72877abdbbff1922f25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Expire soon contests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					},
+					{
+						"key": "timezone",
+						"value": "Asia/Kolkata",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "{{baseurl}}/contests/expiresoon/0?category=60b4e6c177abdbbff1922f23&subcategories=60b4e72877abdbbff1922f25",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"contests",
+						"expiresoon",
+						"0"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "60b4e6c177abdbbff1922f23"
+						},
+						{
+							"key": "subcategories",
+							"value": "60b4e72877abdbbff1922f25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "media",
+							"type": "file",
+							"src": "/Users/netset/Downloads/1609747917417.JPEG"
+						},
+						{
+							"key": "media_type",
+							"value": "IMG",
+							"description": "\"AUD\", \"VID\", \"IMG\", \"GIF\", \"YTV\", \"WRP\"",
+							"type": "text"
+						},
+						{
+							"key": "youtube_media_link",
+							"value": "",
+							"description": "if media type is YTV",
+							"type": "text"
+						},
+						{
+							"key": "post",
+							"value": "",
+							"description": "string html if media type is WRP",
+							"type": "text"
+						},
+						{
+							"key": "contest",
+							"value": "60b6258ae63975137655186b",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/posts",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pin Contest",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "contest",
+							"value": "60b6258ae63975137655186b",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/contests/pin",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"contests",
+						"pin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Social Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "aman@yopmail.com",
+							"type": "text"
+						},
+						{
+							"key": "social_media_id",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "profile_image",
+							"value": "",
+							"description": "image path from scoial login",
+							"type": "text"
+						},
+						{
+							"key": "f_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "l_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "register_type",
+							"value": "F",
+							"description": "F-facebook, T- twitter",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/users/socialLogin",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"users",
+						"socialLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "admin@yopmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/admins/login",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"admins",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
